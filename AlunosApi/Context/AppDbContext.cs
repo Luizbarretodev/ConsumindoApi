@@ -9,7 +9,7 @@ namespace AlunosApi.Context
         {
         }
 
-        DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
