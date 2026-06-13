@@ -106,7 +106,7 @@ namespace AlunosApi.Controllers
         {
             try
             {
-                var aluno = _alunoService.GetAluno(id);
+                var aluno = await _alunoService.GetAluno(id);
                 if (aluno != null)
                 {
                     await _alunoService.DeleteAluno(id);
@@ -117,9 +117,9 @@ namespace AlunosApi.Controllers
                     return NotFound($"Aluno de id: {id} não encontrado");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                return BadRequest("Request inválido");
+                return BadRequest(ex.Message);
             }
         }
     }
